@@ -1,0 +1,170 @@
+
+
+-------------------------------------------------------------------WHERE & BETWEEN & LIKE ---------------------------------------------------------------
+
+
+
+mysql> select student_id ,student_name  from student_info where student_grades='A+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
++------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades='B+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|    2548995 | samba        |
++------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades<>'B+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
++------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades<>'A+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|    2548995 | samba        |
++------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades!='A+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|    2548995 | samba        |
++------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades!='B+';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
+|   11902848 | Chandu       |
++------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_grades between 9550967 and 95506739;
+Empty set (0.00 sec)
+
+mysql> select student_id ,student_name  from student_info where student_mobile_no between 9550967 and 95506739;
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|   11902848 | Chandu       |
++------------+--------------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql> select * from table1 where marks between 26 and 59;
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
+|  3 | jyothi |    56 |   18 |
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
++----+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from table1 where marks between 26 and 56;
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
+|  3 | jyothi |    56 |   18 |
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
++----+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from table1 where marks between 27 and 56;
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
+|  3 | jyothi |    56 |   18 |
+|  2 | madhu  |    27 |   24 |
+|  3 | jyothi |    56 |   18 |
++----+--------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from table1 where name like 'j%';
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  3 | jyothi |    56 |   18 |
+|  3 | jyothi |    56 |   18 |
+|  3 | jyothi |    56 |   18 |
++----+--------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from table1 where name like 'm%';
++----+-------+-------+------+
+| id | name  | marks | age  |
++----+-------+-------+------+
+|  2 | madhu |    27 |   24 |
+|  2 | madhu |    27 |   24 |
++----+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from table1 where name like '%u';
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  1 | chandu |    85 |   22 |
+|  2 | madhu  |    27 |   24 |
+|  2 | madhu  |    27 |   24 |
++----+--------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from table1 where name like '%u';
++----+--------+-------+------+
+| id | name   | marks | age  |
++----+--------+-------+------+
+|  1 | chandu |    85 |   22 |
+|  2 | madhu  |    27 |   24 |
+|  2 | madhu  |    27 |   24 |
++----+--------+-------+------+
+3 rows in set (0.00 sec)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> select name as 'student name',marks as 'marks obtained' from table1;
++--------------+----------------+
+| student name | marks obtained |
++--------------+----------------+
+| chandu       |             85 |
+| madhu        |             27 |
+| jyothi       |             56 |
+| karthik      |             88 |
+| kar          |             88 |
+| jyothi       |             56 |
+| madhu        |             27 |
+| karthik      |             88 |
+| kar          |             88 |
+| jyothi       |             56 |
++--------------+----------------+
+10 rows in set (0.02 sec)
