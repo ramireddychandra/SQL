@@ -1,0 +1,20 @@
+
+mysql> drop database chandudb;   		//QUERY Used TO Drop the database ...
+Query OK, 2 rows affected (2.76 sec)
+
+mysql> show databases;					//THIS QUERY will show all databases present...
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sqlpractice        |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> drop database chandudb;		// When database is not Present or already Droped, And trying to drop again then we will be suffering with 1008 ERROR...
+ERROR 1008 (HY000): Can't drop database 'chandudb'; database doesn't exist	

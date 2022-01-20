@@ -1,0 +1,100 @@
+modified
+
+-------------------------------------------------------------------- HOW TO CREATE THE TABLE IN THE DATABASE --------------------------------------------------------
+
+
+mysql> create table t1(
+    -> id int not null,
+    -> age int ,
+    -> acno int(12) not null,
+    -> primary key(id));												// MAKE SINGLE PRIMARY KEY
+Query OK, 0 rows affected, 1 warning (2.04 sec)
+
+mysql> desc t1;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| id    | int  | NO   | PRI | NULL    |       |
+| age   | int  | YES  |     | NULL    |       |
+| acno  | int  | NO   |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+
+
+mysql> insert into t1 values(1,44,444);
+ERROR 1062 (23000): Duplicate entry '1' for key 't1.PRIMARY'
+mysql> CREATE TABLE Persons (
+    ->     ID int NOT NULL,
+    ->     LastName varchar(255) NOT NULL,
+    ->     FirstName varchar(255),
+    ->     Age int,
+    ->     CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)					//MULTIPLE PRIMARY KEYS
+    ->     );
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> desc persons;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| ID        | int          | NO   | PRI | NULL    |       |
+| LastName  | varchar(255) | NO   | PRI | NULL    |       |
+| FirstName | varchar(255) | YES  |     | NULL    |       |
+| Age       | int          | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.08 sec)
+
+
+------------------------------------------------------------------- HOW TO CREATE THE TABLE IN THE DATABASE --------------------------------------------------------
+
+
+
+mysql> create table student_info(		 		// QUERY FOR CREATE THE TABLE IN THE BATABASE...			
+    -> student_id int,
+    -> student_name varchar(255),
+    -> student_village varchar(255),
+    -> student_section varchar(5),
+    -> student_class_teacher varchar(100),
+    -> student_mobile_no int,
+    -> student_grades varchar(5)
+    -> );
+Query OK, 0 rows affected (2.29 sec)
+
+mysql> select * from student_info;				// QUERY TO SELECT THE DATA FROM TABLE THAT IS CREATED INSIDE THE DATABSE
+
+Empty set (0.16 sec)
+
+mysql> show tables;								//QUERY TO CHECK THE TABLES PRESENT IN THE DATABASE
++-------------------+
+| Tables_in_student |
++-------------------+
+| student_info      |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> show columns from student_info;			// QUERY FOR--> LETS SAY AFTER LONG TIME OR ANY TIME IF WE HAVE FORGOTTEN WHAT WERE THE COLUMNS PRESENT IN THE TABLE THEN THIS IS USEFUL... 
++-----------------------+--------------+------+-----+---------+-------+
+| Field                 | Type         | Null | Key | Default | Extra |
++-----------------------+--------------+------+-----+---------+-------+
+| student_id            | int          | YES  |     | NULL    |       |
+| student_name          | varchar(255) | YES  |     | NULL    |       |
+| student_village       | varchar(255) | YES  |     | NULL    |       |
+| student_section       | varchar(5)   | YES  |     | NULL    |       |
+| student_class_teacher | varchar(100) | YES  |     | NULL    |       |
+| student_mobile_no     | int          | YES  |     | NULL    |       |
+| student_grades        | varchar(5)   | YES  |     | NULL    |       |
++-----------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.10 sec)
+
+mysql> desc student_info;					//QUERY FOR (SAME PURPOSE OF ABOVE QUERY)--> LETS SAY AFTER LONG TIME OR ANY TIME IF WE HAVE FORGOTTEN WHAT WERE THE COLUMNS PRESENT IN THE TABLE THEN THIS IS USEFUL... 
++-----------------------+--------------+------+-----+---------+-------+
+| Field                 | Type         | Null | Key | Default | Extra |
++-----------------------+--------------+------+-----+---------+-------+
+| student_id            | int          | YES  |     | NULL    |       |
+| student_name          | varchar(255) | YES  |     | NULL    |       |
+| student_village       | varchar(255) | YES  |     | NULL    |       |
+| student_section       | varchar(5)   | YES  |     | NULL    |       |
+| student_class_teacher | varchar(100) | YES  |     | NULL    |       |
+| student_mobile_no     | int          | YES  |     | NULL    |       |
+| student_grades        | varchar(5)   | YES  |     | NULL    |       |
++-----------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+

@@ -1,0 +1,33 @@
+
+
+
+
+
+--------------------------------------------------------------- THIS IS EFFICIENT METHOD TO SELECT ALL COLUMNS THAN "*" -------------------------------------------------------
+
+
+mysql> select student_id,student_name,student_village,student_section,student_class_teacher,student_mobile_no,student_grades from student_info;
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+| student_id | student_name | student_village | student_section | student_class_teacher | student_mobile_no | student_grades |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+|   11902848 | Chandu       | peddanapadu     | A               | lakshmi               |           9550967 | A+             |
+|   11902848 | Chandu       | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|   11902848 | Chandu       | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|    2548995 | samba        | kakinada        | B               | shambhavi             |         995951843 | B+             |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+4 rows in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> select distinct student_mobile_no  from student_info;		// DISTINCT IS NOTHING BUT WE GET ALL POSSIBLE UNIQUE VALUES IN THE PARTICULAR COLUMNS,
++-------------------+
+| student_mobile_no |
++-------------------+
+|           9550967 |
+|         955096739 |
+|         995951843 |
++-------------------+
+3 rows in set (0.10 sec)
+

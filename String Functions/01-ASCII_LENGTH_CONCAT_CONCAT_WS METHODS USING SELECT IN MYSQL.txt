@@ -1,0 +1,137 @@
+
+----------------------------------------------------------------------ASCII AND LENGTH & CONCAT & CONCAT_WS ----------------------------------------------------------------------
+t
+mysql> select ascii('A') as 'value'
+    -> ;
++-------+
+| value |
++-------+
+|    65 |
++-------+
+1 row in set (0.00 sec)
+
+
+mysql> select ascii('chandu') as 'value';
++-------+
+| value |
++-------+
+|    99 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select ascii('A');
++------------+
+| ascii('A') |
++------------+
+|         65 |
++------------+
+1 row in set (0.00 sec)
+
+
+mysql> desc student_info;
++-----------------------+--------------+------+-----+---------+-------+
+| Field                 | Type         | Null | Key | Default | Extra |
++-----------------------+--------------+------+-----+---------+-------+
+| student_id            | int          | YES  |     | NULL    |       |
+| student_name          | varchar(255) | YES  |     | NULL    |       |
+| student_village       | varchar(255) | YES  |     | NULL    |       |
+| student_section       | varchar(5)   | YES  |     | NULL    |       |
+| student_class_teacher | varchar(100) | YES  |     | NULL    |       |
+| student_mobile_no     | int          | YES  |     | NULL    |       |
+| student_grades        | varchar(5)   | YES  |     | NULL    |       |
++-----------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.40 sec)
+
+mysql> select ascii(student_name) as 'value' from student_info;
++-------+
+| value |
++-------+
+|   109 |
+|   109 |
+|   109 |
+|   115 |
++-------+
+4 rows in set (0.09 sec)
+
+================================================================================================================================================================================
+
+mysql> select length(student_name) from student_info;
++----------------------+
+| length(student_name) |
++----------------------+
+|                    7 |
+|                    7 |
+|                    7 |
+|                    5 |
++----------------------+
+4 rows in set (0.00 sec)
+
+mysql> select char_length(student_name) from student_info;
++---------------------------+
+| char_length(student_name) |
++---------------------------+
+|                         7 |
+|                         7 |
+|                         7 |
+|                         5 |
++---------------------------+
+4 rows in set (0.11 sec)
+
+mysql> select char_length(student_name) as length from student_info;
++--------+
+| length |
++--------+
+|      7 |
+|      7 |
+|      7 |
+|      5 |
++--------+
+4 rows in set (0.00 sec)
+
+
+mysql> select length("chandu YAMA");
++-----------------------+
+| length("chandu YAMA") |
++-----------------------+
+|                    11 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+
+
+================================================================================================================================================================================
+
+
+
+mysql> select concat("ramieddy","chandra","sekhar","reddy");
++-----------------------------------------------+
+| concat("ramieddy","chandra","sekhar","reddy") |
++-----------------------------------------------+
+| ramieddychandrasekharreddy                    |
++-----------------------------------------------+
+1 row in set (0.02 sec)
+
+mysql> select concat(student_name ," from ",student_village," has got ",student_grades ) from student_info;
++----------------------------------------------------------------------------+
+| concat(student_name ," from ",student_village," has got ",student_grades ) |
++----------------------------------------------------------------------------+
+| madhuri from peddanapadu has got A+                                        |
+| madhuri from peddanapadu has got A+                                        |
+| madhuri from peddanapadu has got A+                                        |
+| samba from kakinada has got B+                                             |
++----------------------------------------------------------------------------+
+4 rows in set (0.00 sec)
+
+
+====================================================================================================================================================================================
+
+
+mysql> select concat_ws("_","rami","reddy","chandu") as concat_string;
++-------------------+
+| concat_string     |
++-------------------+
+| rami_reddy_chandu |
++-------------------+
+
