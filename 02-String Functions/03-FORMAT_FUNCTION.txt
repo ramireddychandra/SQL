@@ -1,0 +1,136 @@
+
+
+================================================================ Format(number or float column , 0-9) =============================================================================
+
+
+mysql> select format(1254785.254,2);		// FIRST ARGUMENT IS FLOAT , SECOND ARGUMENT SHOULD BE DIGIT THAT ALLOWS NUMBER OF DECIMALS...
++-----------------------+
+| format(1254785.254,2) |
++-----------------------+
+| 1,254,785.25          |					// WE PASSES DIGIT ARGUMENT AS 2 SO AFTER DECIMAL 2 DIGITS WERE ALLLOWED...
++-----------------------+
+1 row in set (0.12 sec)
+
+mysql> select format(1254785.654,2);
++-----------------------+
+| format(1254785.654,2) |
++-----------------------+
+| 1,254,785.65          |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select format(1254785.654,0);
++-----------------------+
+| format(1254785.654,0) |
++-----------------------+
+| 1,254,786             |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select format(1254785.254,0)
+    -> ;
++-----------------------+
+| format(1254785.254,0) |
++-----------------------+
+| 1,254,785             |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> create table t1(
+    -> id int not null auto_increment,
+    -> name varchar(30),
+    -> marks float,
+    -> average float,
+    -> primary key(id));
+Query OK, 0 rows affected (1.96 sec)
+
+mysql> insert into t1 (name,marks,average) values ("chandu",25.6,55.2546),
+    -> ("madhu",54.254,88.254588),
+    -> ("sambha",89.425,66.2548),
+    -> ("madhu",54.254,88.254588),
+    -> ("sambha",89.425,66.2548),
+    -> ("kiran",25.365,99.25452);
+Query OK, 6 rows affected (1.32 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from t1;
++----+--------+--------+---------+
+| id | name   | marks  | average |
++----+--------+--------+---------+
+|  1 | chandu |   25.6 | 55.2546 |
+|  2 | madhu  | 54.254 | 88.2546 |
+|  3 | sambha | 89.425 | 66.2548 |
+|  4 | madhu  | 54.254 | 88.2546 |
+|  5 | sambha | 89.425 | 66.2548 |
+|  6 | kiran  | 25.365 | 99.2545 |
++----+--------+--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select format(average,2) as average_in_two_diggit from t1;			// FORMAT FUNCTION IS APPLIED TO COLUMN OF TABLE...
++-----------------------+
+| average_in_two_diggit |
++-----------------------+
+| 55.25                 |
+| 88.25                 |
+| 66.25                 |
+| 88.25                 |
+| 66.25                 |
+| 99.25                 |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select format(average,3) as average_in_two_diggit from t1;
++-----------------------+
+| average_in_two_diggit |
++-----------------------+
+| 55.255                |
+| 88.255                |
+| 66.255                |
+| 88.255                |
+| 66.255                |
+| 99.255                |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select format(average,1) as average_in_two_diggit from t1;
++-----------------------+
+| average_in_two_diggit |
++-----------------------+
+| 55.3                  |
+| 88.3                  |
+| 66.3                  |
+| 88.3                  |
+| 66.3                  |
+| 99.3                  |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select format(average,0) as average_in_two_diggit from t1;
++-----------------------+
+| average_in_two_diggit |
++-----------------------+
+| 55                    |
+| 88                    |
+| 66                    |
+| 88                    |
+| 66                    |
+| 99                    |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select format(average,-1) as average_in_two_diggit from t1;
++-----------------------+
+| average_in_two_diggit |
++-----------------------+
+| 55                    |
+| 88                    |
+| 66                    |
+| 88                    |
+| 66                    |
+| 99                    |
++-----------------------+
+6 rows in set (0.10 sec)
+
+mysql>
+
+

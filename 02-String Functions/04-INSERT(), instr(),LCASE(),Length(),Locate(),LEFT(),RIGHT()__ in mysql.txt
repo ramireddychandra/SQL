@@ -1,0 +1,224 @@
+
+============================================== INSERT()-- instr()----LCASE()--- Length()----Locate()---LEFT()---Right() ============================================================
+
+
+mysql>
+mysql>
+mysql>
+mysql> SELECT INSERT("RAMIREDDY CHANDU",11,2,"SWAMII");
++------------------------------------------+
+| INSERT("RAMIREDDY CHANDU",11,2,"SWAMII") |
++------------------------------------------+
+| RAMIREDDY SWAMIIANDU                     |
++------------------------------------------+
+1 row in set (0.25 sec)
+
+mysql> SELECT INSERT("RAMIREDDY CHANDU",11,0,"SWAMII");
++------------------------------------------+
+| INSERT("RAMIREDDY CHANDU",11,0,"SWAMII") |
++------------------------------------------+
+| RAMIREDDY SWAMIICHANDU                   |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT INSERT("RAMIREDDY CHANDU",11,1,"SWAMII");
++------------------------------------------+
+| INSERT("RAMIREDDY CHANDU",11,1,"SWAMII") |
++------------------------------------------+
+| RAMIREDDY SWAMIIHANDU                    |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from student_info;
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+| student_id | student_name | student_village | student_section | student_class_teacher | student_mobile_no | student_grades |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+|   11902849 | madhuri      | peddanapadu     | A               | lakshmi               |           9550967 | A+             |
+|   11902885 | madhuri      | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|   11902885 | madhuri      | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|    2548995 | samba        | kakinada        | B               | shambhavi             |         995951843 | B+             |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+4 rows in set (0.59 sec)
+
+
+mysql> select insert(student_village,1,0,student_class_teacher) from student_info;
++---------------------------------------------------+
+| insert(student_village,1,0,student_class_teacher) |
++---------------------------------------------------+
+| lakshmipeddanapadu                                |
+| lakshmipeddanapadu                                |
+| lakshmipeddanapadu                                |
+| shambhavikakinada                                 |
++---------------------------------------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select insert(student_village,5,0,student_class_teacher) from student_info;
++---------------------------------------------------+
+| insert(student_village,5,0,student_class_teacher) |
++---------------------------------------------------+
+| peddlakshmianapadu                                |
+| peddlakshmianapadu                                |
+| peddlakshmianapadu                                |
+| kakishambhavinada                                 |
++---------------------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select insert(student_village,5,0,student_class_teacher) as combine_name from student_info;
++--------------------+
+| combine_name       |
++--------------------+
+| peddlakshmianapadu |
+| peddlakshmianapadu |
+| peddlakshmianapadu |
+| kakishambhavinada  |
++--------------------+
+4 rows in set (0.00 sec)
+
+====================================================================================== instr() ========================================================================================
+
+
+====== IT FINDS THE FIRST OCCURENCE OF THE STRING IN ANOTHER STRING...........
+
+mysql> select instr("chandra sekhar reddy","a");
++-----------------------------------+
+| instr("chandra sekhar reddy","a") |
++-----------------------------------+
+|                                 3 |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from student_info;
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+| student_id | student_name | student_village | student_section | student_class_teacher | student_mobile_no | student_grades |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+|   11902849 | madhuri      | peddanapadu     | A               | lakshmi               |           9550967 | A+             |
+|   11902885 | madhuri      | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|   11902885 | madhuri      | peddanapadu     | A               | lakshmi               |         955096739 | A+             |
+|    2548995 | samba        | kakinada        | B               | shambhavi             |         995951843 | B+             |
++------------+--------------+-----------------+-----------------+-----------------------+-------------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select instr(student_name,"uri")
+    -> ;
+ERROR 1054 (42S22): Unknown column 'student_name' in 'field list'
+mysql> select instr(student_name,"uri") from student_info;
++---------------------------+
+| instr(student_name,"uri") |
++---------------------------+
+|                         5 |
+|                         5 |
+|                         5 |
+|                         0 |
++---------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select student_name,instr(student_name,"uri") from student_info;
++--------------+---------------------------+
+| student_name | instr(student_name,"uri") |
++--------------+---------------------------+
+| madhuri      |                         5 |
+| madhuri      |                         5 |
+| madhuri      |                         5 |
+| samba        |                         0 |
++--------------+---------------------------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+
+
+================================================================================  LCASE() ========================================================================================
+
+=-=========================> LOWERCASE......
+
+mysql> select "CHANDU";
++--------+
+| CHANDU |
++--------+
+| CHANDU |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select lcase("CHANDU");
++-----------------+
+| lcase("CHANDU") |
++-----------------+
+| chandu          |
++-----------------+
+1 row in set (0.01 sec)
+
+
+
+
+================================================================================  length() ========================================================================================
+
+mysql> select length("vlr");
++---------------+
+| length("vlr") |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select char_length("vlr");
++--------------------+
+| char_length("vlr") |
++--------------------+
+|                  3 |
++--------------------+
+1 row in set (0.01 sec)
+
+mysql> select char_length("vlr ");
++---------------------+
+| char_length("vlr ") |
++---------------------+
+|                   4 |
++---------------------+
+1 row in set (0.00 sec)
+
+================================================================================== locate() =======================================================================================\
+
+
+
+
+mysql> select locate("du","chandu");
++-----------------------+
+| locate("du","chandu") |
++-----------------------+
+|                     5 |
++-----------------------+
+1 row in set (0.14 sec)
+
+mysql>
+
+================================================================================ LEFT()--- RIGHT() ================================================================================
+
+
+
+
+mysql> select left("chan du",3);
++-------------------+
+| left("chan du",3) |
++-------------------+
+| cha               |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select right("chan du",3);
++--------------------+
+| right("chan du",3) |
++--------------------+
+|  du                |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select right("chan du",4);
++--------------------+
+| right("chan du",4) |
++--------------------+
+| n du               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql>
